@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Employees</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+
+<h2>Employee List</h2>
+
+<table>
+    <tr>
+        <th>#</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Email</th>
+    </tr>
+
+    <tr th:each="emp, stat : ${employees}">
+        <td th:text="${stat.index + 1}"></td>
+        <td th:text="${emp.firstName}"></td>
+        <td th:text="${emp.lastName}"></td>
+        <td th:text="${emp.email}"></td>
+    </tr>
+</table>
+
+<!-- Pagination -->
+<div>
+    <a th:if="${currentPage > 0}"
+       th:href="@{/employees(page=${currentPage - 1})}">
+        Previous
+    </a>
+
+    <span th:text="${currentPage + 1}"></span>
+    /
+    <span th:text="${totalPages}"></span>
+
+    <a th:if="${currentPage < totalPages - 1}"
+       th:href="@{/employees(page=${currentPage + 1})}">
+        Next
+    </a>
+</div>
+
+</body>
+</html>
