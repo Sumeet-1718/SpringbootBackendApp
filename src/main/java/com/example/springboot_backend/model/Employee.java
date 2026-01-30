@@ -11,7 +11,10 @@ import lombok.AllArgsConstructor;
         name = "Employee.findByFirstName",
         query = "SELECT e FROM Employee e WHERE e.firstName = :firstName"
 )
-
+@NamedQuery
+        (name= "Employee.findById",
+         query="Select e from Employee e WHERE e.id= :id"
+        )
 @Data
 @NoArgsConstructor
 @AllArgsConstructor

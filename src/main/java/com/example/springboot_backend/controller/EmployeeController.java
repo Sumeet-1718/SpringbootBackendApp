@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/employees")
@@ -65,7 +66,9 @@ public ResponseEntity<String> deleteEmployee(@PathVariable("id") long id){
         return employeeService.getEmployeesByFirstName(firstName);
     }
 
-
-
+   @GetMapping("/by-id")
+  public Optional<Employee> findById(@RequestParam long id){
+        return employeeService.findById(id);
+   }
 
 }

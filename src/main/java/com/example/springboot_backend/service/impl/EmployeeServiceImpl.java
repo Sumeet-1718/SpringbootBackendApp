@@ -76,5 +76,10 @@ public class EmployeeServiceImpl implements EmployeeService {
         return employeeRepository.findByFirstName(firstName);
     }
 
+    @Override
+    public Optional<Employee> findById(long id) {
+        return employeeRepository.findById(id);
+    }
+
 
 }
