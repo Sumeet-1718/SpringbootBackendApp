@@ -65,8 +65,7 @@ public ResponseEntity<String> deleteEmployee(@PathVariable("id") long id){
     public List<Employee> getEmployeesByFirstName(@RequestParam String firstName) {
         return employeeService.getEmployeesByFirstName(firstName);
     }
-
-   @GetMapping("/by-id")
+    @GetMapping("/by-id")
   public Optional<Employee> findById(@RequestParam long id){
         return employeeService.findById(id);
    }

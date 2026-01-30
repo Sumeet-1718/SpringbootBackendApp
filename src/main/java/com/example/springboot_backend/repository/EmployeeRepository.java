@@ -15,5 +15,4 @@ public interface EmployeeRepository  extends JpaRepository <Employee, Long>{
 
     @Query(name= "Employee.findById")
     Optional<Employee> findById(@Param("id") long id);
-
 }
